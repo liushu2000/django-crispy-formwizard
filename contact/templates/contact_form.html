@@ -1,0 +1,30 @@
+{% extends "base_bootstrap.html" %}
+{#{% load bootstrap %}#}
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+{% block head %}
+
+{% load staticfiles %}
+{% endblock %}
+
+{% block content %}
+
+        <h2>Contact Form via Bootstrap</h2>
+        <div class="row">
+                <div class="col-md-4">
+                    <form action="/contact/" method="post" class="form">{% csrf_token %}
+                    {#{{ form }}#}
+                        {% bootstrap_form form %}
+                        {% buttons %}
+                            <button type="submit" class="btn btn-primary">
+                                {% bootstrap_icon "star" %} Submit
+                            </button>
+                        {% endbuttons %}
+                    </form>
+                </div>
+        </div>
+{% endblock %}
