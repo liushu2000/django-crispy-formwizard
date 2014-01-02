@@ -8,12 +8,13 @@
 {% endblock %}
 
 {% block content %}
-        <h2>Contact Crispy Form</h2>
+        <h3>Contact Crispy Form</h3>
         <div class="row ">
 
             <div class="col-xs-6 col-md-4">
-                <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
-                <form action="" method="post">{% csrf_token %}
+
+                <form action="" method="post" role="form">{% csrf_token %}
+                <div class="form-group">
                 <table>
                 {{ wizard.management_form }}
                 {% if wizard.form.forms %}
@@ -26,14 +27,16 @@
 {#                    {{ wizard.form|crispy }}#}
                 {% endif %}
                 </table>
+                </div>
                 {% if wizard.steps.prev %}
-                <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% trans "first step" %}</button>
-                <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>
+                <button name="wizard_goto_step" type="submit"  value="{{ wizard.steps.first }}">{% trans "first step" %}</button>
+                <button name="wizard_goto_step1" type="submit" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>
                 {% endif %}
 {#                            <button type="submit" class="btn btn-primary">Submit#}
 {#                                {% bootstrap_icon "star" %} Submit#}
 {#                            </button>#}
                 </form>
+            <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
               </div>
         </div>
 {% endblock %}

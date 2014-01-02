@@ -6,7 +6,6 @@ from django import forms
 from models import Contact
 from forms import ContactForm2
 import collections
-import datetime
 
 class ContactWizard(SessionWizardView):
 
