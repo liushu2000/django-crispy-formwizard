@@ -1,5 +1,6 @@
 {% extends "base_bootstrap.html" %}
 {% load i18n %}
+
 {% load crispy_forms_tags %}
 
 {% block head %}
@@ -8,9 +9,8 @@
 {% endblock %}
 
 {% block content %}
-        <h3>Contact Crispy Form</h3>
-        <div class="row ">
 
+        <h3>{% trans "Create new customer" %}</h3>
             <div class="col-xs-6 col-md-4">
 
                 <form action="" method="post" role="form">{% csrf_token %}
@@ -38,5 +38,5 @@
                 </form>
             <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
               </div>
-        </div>
+
 {% endblock %}

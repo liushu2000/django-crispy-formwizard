@@ -1,3 +1,8 @@
 django
 django-crispy-forms
 selenium
+python-dateutil >=2.2
+django-bootstrap3
+#django-tables2
+django-datatables-view
+django-autofixture

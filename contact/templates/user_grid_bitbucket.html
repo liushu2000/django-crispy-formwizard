@@ -1,0 +1,98 @@
+{% extends "base_bootstrap.html" %}
+{#{% extends "base_datatable.html" %}#}
+{% load i18n %}
+
+{% block extra_head %}
+{#    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">#}
+{#    <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>#}
+{#        <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css" />#}
+{#    <script type="text/javascript" charset="utf8" src="https://www.datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>#}
+    <style>
+        table {
+            table-layout:fixed;
+        }
+
+        td{
+            overflow:hidden;
+            text-overflow: ellipsis;
+        }
+</style>
+    <script type="text/javascript" charset="utf-8">
+
+        $(document).ready(function() {
+            var oTable = $('.datatable').dataTable({
+                // ...
+               // "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>"
+               //   "sDom":"<'row'<'col-xs-6'l><'col-xs-6'f>r>"+"t"+ "<'row'<'col-xs-6'i><'col-xs-6'p>>",
+                "bProcessing": true,
+                "bServerSide": true,
+                "sAjaxSource": "{% url 'user_list_json' %}",
+{#                "sPaginationType": "full_numbers",#}
+                "sPaginationType": "bootstrap",
+                "bFilter": true,
+                //"bLengthChange": false,
+                "bAutoWidth": false,
+                "sScrollX": "100%",
+                "sScrollXInner": "110%",
+               	"sScrollY": "400px",
+                "bScrollCollapse": true,
+
+                // Translation
+                "oLanguage": {
+                    "sLengthMenu": "{%  trans "Display _MENU_ records per page" %}",
+                    "sZeroRecords": "Nothing found - sorry",
+                    "sInfo": "Showing _START_ to _END_ of _TOTAL_ records",
+                    "sInfoEmpty": "Showing 0 to 0 of 0 records",
+                    "sInfoFiltered": "(filtered from _MAX_ total records)"
+                }
+
+                //"bSmart" : false
+            });
+            //oTable.fnFilter( 'test string' );
+            // ...
+            //DataTables_Table_0_filter.style.visibility="hidden";
+            DataTables_Table_0_filter.parentNode.removeChild(DataTables_Table_0_filter);
+
+            $(search_btn1).click( function(e) {
+                oTable.fnFilter( input1.value );
+            } );
+            $('#input1').keypress(function(event) {
+                    if (event.keyCode == 13) {
+                         oTable.fnFilter( input1.value )
+                    }
+                });
+            
+
+        });
+        </script>
+
+{% endblock %}
+
+{% block content %}
+
+
+    <h2>{% trans "Customers List" %}</h2>
+    <div class="row">
+        <div class="dataTables_filter col-md-6 pull-right">
+           <div class="form-inline pull-right" >
+            <div class="form-group">
+                <input class="form-control" type="text" name="q" id="input1" value="{{ query }}" placeholder="{% trans "Search" %}" aria-controls="example"/>
+             </div>
+            <button class="btn btn-default" type="submit" class="btn btn-default btn-sm" id="search_btn1">{% trans "Search" %}</button>
+{#            <input type="button" value="Search" id="search_btn1" class="btn btn-default btn-sm"/>#}
+           </div>
+        </div>
+    </div>
+    <table class="datatable table  table-responsive table-hover table-striped table-bordered" cellpadding="0" cellspacing="0" border="0" >
+
+        <thead>
+{#            <th>{% trans "ID" %}</th>#}
+            <th>{% trans "Username" %}</th>
+            <th>{% trans "Email" %}</th>
+            <th>{% trans "Phone" %}</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+{% endblock %}

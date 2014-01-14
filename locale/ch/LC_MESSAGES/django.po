@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-13 23:49+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: build/django-crispy-forms/build/lib.linux-x86_64-2.7/crispy_forms/tests/test_form_helper.py:129
+#: build/django-crispy-forms/build/lib.linux-x86_64-2.7/crispy_forms/tests/test_form_helper.py:139
+#: build/django-crispy-forms/crispy_forms/tests/test_form_helper.py:129
+#: build/django-crispy-forms/crispy_forms/tests/test_form_helper.py:139
+msgid "This field is required."
+msgstr "必填"
+
+#: build/django-crispy-forms/build/lib.linux-x86_64-2.7/crispy_forms/tests/test_layout.py:467
+#: build/django-crispy-forms/crispy_forms/tests/test_layout.py:467
+msgid "i18n text"
+msgstr "多语言版本"
+
+#: build/django-crispy-forms/build/lib.linux-x86_64-2.7/crispy_forms/tests/test_layout.py:469
+#: build/django-crispy-forms/crispy_forms/tests/test_layout.py:469
+msgid "i18n legend"
+msgstr "多语言"
+
+#: build/django-crispy-forms/build/lib.linux-x86_64-2.7/crispy_forms/tests/test_layout_objects.py:111
+#: build/django-crispy-forms/crispy_forms/tests/test_layout_objects.py:111
+msgid "Enter a valid value."
+msgstr "输入"
+
+#: build/django-datagrid/datagrid/grids.py:264
+#: build/django-datagrid/example/datagrid/grids.py:264
+#, python-format
+msgid "%s ago"
+msgstr "%s 之前"
+
+#: build/django-datagrid/datagrid/templates/datagrid/column_header.html:13
+#: build/django-datagrid/example/datagrid/templates/datagrid/column_header.html:13
+msgid "Ascending"
+msgstr "升序"
+
+#: build/django-datagrid/datagrid/templates/datagrid/column_header.html:13
+#: build/django-datagrid/example/datagrid/templates/datagrid/column_header.html:13
+msgid "Descending"
+msgstr "降序"
+
+#: build/django-datagrid/datagrid/templates/datagrid/column_header.html:18
+#: build/django-datagrid/example/datagrid/templates/datagrid/column_header.html:18
+msgid "Unsort"
+msgstr "不排序"
+
+#: contact/templates/base_bootstrap.html:51
+msgid "Home"
+msgstr "首页"
+
+#: contact/templates/base_bootstrap.html:53
+msgid "Create User"
+msgstr "创建新客户"
+
+#: contact/templates/base_bootstrap.html:54
+msgid "User Grid"
+msgstr "客户列表"
+
+#: contact/templates/base_bootstrap.html:73
+msgid "This page is displaying in language code"
+msgstr "页面显示语言代码"
+
+#: contact/templates/contact_wizard_form.html:32
+#: contact/templates/contact_wizard_form_crispy.html:32
+msgid "first step"
+msgstr "第一步"
+
+#: contact/templates/contact_wizard_form.html:33
+#: contact/templates/contact_wizard_form_crispy.html:33
+msgid "prev step"
+msgstr "下一步"
+
+#: contact/templates/contact_wizard_form_crispy.html:13
+msgid "Create new customer"
+msgstr "创建新用户"
+
+#: contact/templates/user_grid_bitbucket.html:33
+msgid "Display _MENU_ records per page"
+msgstr "每页显示 _MENU_ 结果"
+
+#: contact/templates/user_grid_bitbucket.html:65
+msgid "Customers List"
+msgstr "用户列表"
+
+#: contact/templates/user_grid_bitbucket.html:70
+#: contact/templates/user_grid_bitbucket.html:72
+msgid "Search"
+msgstr "搜索"
+
+#: contact/templates/user_grid_bitbucket.html:81
+msgid "Username"
+msgstr "用户名"
+
+#: contact/templates/user_grid_bitbucket.html:82
+msgid "Email"
+msgstr "电邮"
+
+#: contact/templates/user_grid_bitbucket.html:83
+msgid "Phone"
+msgstr "电话"
+
+#: formwizard/settings.py:39
+msgid "Chinese"
+msgstr "中文"
+
+#~ msgid "View this page in:"
+#~ msgstr "使用语言"
+
+#~ msgid "English"
+#~ msgstr "英语"
+
+#~ msgid "Name*"
+#~ msgstr "名字"

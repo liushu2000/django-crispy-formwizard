@@ -1,0 +1,26 @@
+{% extends "base_bootstrap.html" %}
+
+{% block content %}
+
+    <h2>Users List</h2>
+        <a href="/create_user/"><button type="button" class="btn btn-default btn-lg">Add
+        </button></a>
+        {{ datatable }}
+
+
+{% endblock content %}
+
+{% block static %}
+    {{ block.super }}
+    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js" type="text/javascript"></script>
+
+    <!-- Resources for "x-editable columns" demo -->
+    <link href="{{ STATIC_URL }}datepicker/css/datepicker.css" rel="stylesheet"/>
+    <script src="{{ STATIC_URL }}datepicker/js/bootstrap-datepicker.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+$(document).ready(function() {
+    $('#example').dataTable();
+} );
+{% endblock static %}

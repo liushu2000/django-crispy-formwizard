@@ -1,5 +1,6 @@
 # Django settings for formwizard project.
-
+#from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -31,7 +32,20 @@ TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ch'
+ugettext = lambda s: s
+LANGUAGES = (
+    ('ch', _('Chinese')),
+    ('en', 'English'),
+
+)
+
+LOCALE_PATHS = (
+    '/home/shu/projects/django/django-crispy-formwizard/locale/',
+    #'/var/local/translations/locale'
+)
+
 
 SITE_ID = 1
 
@@ -70,7 +84,9 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/shu/projects/django/formwizard/contact/static/',
+    '/home/shu/projects/django/django-crispy-formwizard/contact/static/',
+    '/home/shu/projects/django/django-crispy-formwizard/static',
+    #'/home/shu/projects/django/django-crispy-formwizard/contact/static/',
 
 )
 
@@ -98,16 +114,22 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.core.context_processors.i18n',
+)
 ROOT_URLCONF = 'formwizard.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'formwizard.wsgi.application'
 
 TEMPLATE_DIRS = (
+   # '/home/shu/Envs/env_wizard4/local/lib/python2.7/site-packages/Djblets-0.7.28-py2.7.egg/djblets/datagrid/templates',
+
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -122,9 +144,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.formtools',
     'contact',
-    'bootstrapform',
-    'bootstrap3',
+    #'bootstrapform',
+    #'bootstrap3',
     'crispy_forms',
+    'datatableview',
+    'django_tables2',
+    'debug_toolbar',
+    'autofixture',
+
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

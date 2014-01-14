@@ -45,8 +45,8 @@ class ContactForm3(forms.Form):
     helper = FormHelper()
     helper.form_class = 'form-horizontal'
     helper.layout = Layout(
-    Field('phone', css_class='input-xlarge'),
-    Field('location', rows="3", css_class='input-xlarge'),
+        Field('phone', css_class='input-xlarge'),
+        Field('location', rows="3", css_class='input-xlarge'),
     # 'radio_buttons',
     # Field('checkboxes', style="background: #FAFAFA; padding: 10px;"),
     # AppendedText('appended_text', '.00'),

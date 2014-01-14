@@ -1,0 +1,48 @@
+{% extends "base_bootstrap.html" %}
+
+{% block content %}
+
+<form method="post" action="/users_plain/">
+   <input type="text" name="q" id="id_q" value="{{ query }}"/>
+  <input type="submit" value="Search" />
+</form>
+
+<table class="table table-condensed table-hover" >
+<tr>
+  <th>ID</th>
+  <th>Name</th>
+  <th>Email</th>
+    <th>Phone</th>
+    <th>location</th>
+</tr>
+{% for user in users %}
+<tr>
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+    <td>{{ user.location}}</td>
+  <td>{{ user.publication_year }}</td>
+</tr>
+{% endfor %}
+</table>
+    <div class="pagination">
+    <span class="step-links">
+    <ul class="pager">
+        {% if users.has_previous %}
+           <li> <a href="?page={{ users.previous_page_number }}" type="button" class="btn">Previous</a></li>
+        {% endif %}
+        <span class="current">
+            Page {{ users.number }} of {{ users.paginator.num_pages }}.
+        </span>
+
+        {% if users.has_next %}
+             <li><a href="?page={{ users.next_page_number }}">Next</a></li>
+        {% endif %}
+    </span>
+    </ul>
+</div>
+        
+
+
+{% endblock content %}
