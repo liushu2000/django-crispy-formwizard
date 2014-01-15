@@ -68,9 +68,9 @@ def users_plain(request):
 
 def users_bitbucket(request):
 
-    #from autofixture import AutoFixture
-    #fixture = AutoFixture(Contact)
-    #fixture.create(120)
+    # from autofixture import AutoFixture
+    # fixture = AutoFixture(Contact)
+    # fixture.create(220)
 
     #language= _("Chinese")
 
@@ -89,18 +89,30 @@ def users_bitbucket(request):
                               context_instance=RequestContext(request))
 
 
+def users_jqueryui(request):
+
+    return render_to_response('users_jqueryui.html',
+                              context_instance=RequestContext(request))
+
+
+def users_bootstrap3(request):
+
+    return render_to_response('user_bootstrap3.html',
+                              context_instance=RequestContext(request))
+
+
 class UserListJson(BaseDatatableView):
         # The model we're going to show
         model = Contact
 
         # define the columns that will be returned
-        columns = ['name', 'email', 'phone', ]
+        columns = ['name', 'email', 'phone', 'location']
 
         # define column names that will be used in sorting
         # order is important and should be same as order of columns
         # displayed by datatables. For non sortable columns use empty
         # value like ''
-        order_columns = [ 'name', 'email', 'phone']
+        order_columns = [ 'name', 'email', 'phone', 'location']
 
         # set max limit of records returned, this is used to protect our site if someone tries to attack our site
         # and make it return huge amount of data

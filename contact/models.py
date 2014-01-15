@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 
 
 class Contact(models.Model):
-    name = models.CharField(max_length=20)
-    email = models.EmailField(max_length=50)
-    phone = models.CharField(blank=True, null=True, max_length=12)
+    name = models.CharField(max_length=15)
+    email = models.EmailField(max_length=40)
+    phone = models.IntegerField(blank=True, null=True, max_length=12)
     #vehicle_type = models.ForeignKey(Vehicle_Type)
     memo = models.CharField(blank=True, null=True, max_length=200)
     location = models.CharField(blank=True, null=True, max_length=20)
@@ -15,9 +15,10 @@ class Contact(models.Model):
     def __unicode__(self):
         return self.name
 
-    def get_absolute_url(self):
+    # def get_absolute_url(self):
+    #
+    #     return "user-{pk}".format(pk=self.pk)
 
-        return "user-{pk}".format(pk=self.pk)
 
 class Contact_Revision(models.Model):
     revision_number = models.CharField(primary_key=True, max_length = 100)

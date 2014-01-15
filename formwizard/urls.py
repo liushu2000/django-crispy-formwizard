@@ -5,7 +5,8 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 from contact.forms import ContactForm1, ContactForm2,ContactForm3
 from contact.views import ContactWizard, ContactWizard_crispy,XEditableColumnsDatatableView,\
-    user_list,User_display, user_test, UserListJson,users_plain,users_bitbucket, set_language
+    user_list,User_display, user_test, UserListJson,users_plain,users_bitbucket, set_language,\
+    users_jqueryui, users_bootstrap3
 
 urlpatterns = patterns('',
     # Examples:
@@ -25,6 +26,10 @@ urlpatterns = patterns('',
     url(r'^user_list_json/', UserListJson.as_view(), name="user_list_json"),
     (r'^users_bitbucket/$', users_bitbucket,),
     (r'^users_plain/$', users_plain,),
+    (r'^users_jqueryui/$', users_jqueryui,),
+    (r'^users_bootstrap3/$', users_bootstrap3,),
+
+
 
     (r'^i18n/', include('django.conf.urls.i18n')),
     (r'^setlang/$', set_language),

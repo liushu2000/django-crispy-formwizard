@@ -1,0 +1,111 @@
+{% extends "base_bootstrap.html" %}
+{% load i18n %}
+ {% block static %}
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/static/bs3/css/datatables.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+		<script src="/static/bs3/js/datatables.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			var myTable = $('.datatable').dataTable({
+				"sPaginationType": "bs_full",
+                "bFilter": true,
+                "bProcessing": true,
+                "bServerSide": true,
+                "sAjaxSource": "{% url 'user_list_json' %}",
+                // Translation
+                "oLanguage": {
+                    "sLengthMenu": "{%  trans "Display _MENU_ records per page" %}",
+                    "sZeroRecords": "Nothing found - sorry",
+                    "sInfo": "Showing _START_ to _END_ of _TOTAL_ records",
+                    "sInfoEmpty": "Showing 0 to 0 of 0 records",
+                    "sInfoFiltered": "(filtered from _MAX_ total records)"
+                },
+                // Enable horizontal scrolling
+                // "bScrollInfinite": true,
+                "bScrollCollapse": true,
+                "sScrollY": "200px",
+
+                // Enable vertical scrolling
+
+                "sScrollX": "1000px"
+                //"bScrollCollapse": true
+
+			});
+
+            // Delete Search field from Datatables package
+            DataTables_Table_0_filter.parentNode.removeChild(DataTables_Table_0_filter);
+
+            $(search_btn1).click( function(e) {
+                myTable.fnFilter( input1.value );
+            } );
+            $('#input1').keypress(function(event) {
+                    if (event.keyCode == 13) {
+                         myTable.fnFilter( input1.value )
+                    }
+                });
+
+            // Layouts amendments
+            $('.datatable').each(function(){
+				var datatable = $(this);
+				// SEARCH - Add the placeholder for Search and Turn this into in-line form control
+				var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+				search_input.attr('placeholder', 'Search');
+				search_input.addClass('form-control input-sm');
+				// LENGTH - Inline-Form control
+				var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+				length_sel.addClass('form-control input-sm');
+			});
+		});
+		</script>
+{% endblock %}
+{% block jumbotron %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+         <h2>{% trans "Customers List" %}</h2>
+
+{#        <p><a class="btn btn-primary btn-lg" role="button" href="">More details &raquo;</a>#}
+
+      </div>
+    </div>
+{% endblock jumbotron %}
+{% block content %}
+		<div id="wrap">
+			<div class="container">
+                 <div class="row">
+                     <div class="dataTables_filter col-md-6 ">
+{#                         <button type="button" class="btn btn-default pull-right">Add</button>#}
+{#                         <button type="button" class="btn btn-default pull-right">Edit</button>#}
+{#                         <button type="button" class="btn btn-default pull-right">Delete</button>#}
+                     </div>
+
+                    <div class="dataTables_filter col-md-6 pull-right">
+                       <div class="form-inline pull-right" >
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="q" id="input1" value="{{ query }}" placeholder="{% trans "Search" %}" aria-controls="example"/>
+                         </div>
+                        <button class="btn btn-default" type="submit" class="btn btn-default btn-sm" id="search_btn1">{% trans "Search" %}</button>
+            {#            <input type="button" value="Search" id="search_btn1" class="btn btn-default btn-sm"/>#}
+                       </div>
+                    </div>
+                </div>
+				<table cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover table-responsive">
+
+                <thead>
+        {#            <th>{% trans "ID" %}</th>#}
+                    <th >{% trans "Username" %}</th>
+                    <th >{% trans "Email" %}</th>
+                    <th >{% trans "Phone" %}</th>
+                    <th >{% trans "Location" %}</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+			</div>
+		</div>
+
+		
+{% endblock %}
